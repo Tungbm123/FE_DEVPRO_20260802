@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+}
+
+#logo {
+    /*thay doi kich thuoc text*/
+    font-size: 40px;
+    /*Dung de thay cach hien thi cua text
+        uppercase: Viet hoa het
+        lowercase: Viet thuong het
+        capitalize: Viet hoa chu cai dau cua tu ngu
+    */
+    text-transform: uppercase;
+
+    /*
+    Hien thi text dam nhat, gia tri cua no 100->900
+    bold<-> 700
+    */
+    font-weight: bold;
+    /*
+    Can chinh phan tu html sang trai
+    */
+    float: left;
+    /*margin:　can chinh khoang cach tu border cua phan tu html ra ngoai
+    1. Tat ca khoang cach top/right/botom/lef baang nhau thi dung moi margin
+    2. Top/botom bang nhau, left/right bang nhau: margin 4px 8px
+    apx:top/botom
+    bpx:right/left;
+    3. top/botom ko bang nhau, left/right bang nhau
+        margin:apx bpx cpx
+        apx:top
+        bpx: left/right
+        cpx:bottom 
+    4. 4 khoang cach khac nhau
+        margin: apx bpx cpx dpx
+            apx:top, bpx:right, cpx:bottom, dpx:left 
+    */
+    /* margin-left: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px; */
+
+    margin: 40px 0 40px 30px;
+}
+
+.login-register {
+    /*can chinh phan tu sang phai*/
+    float: right;
+    margin-top: 50px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+}
+
+/*
+Select toi tat ca cac phan tu cac cap
+*/
+.login-register a{
+    font-size: 18px;
+    /*
+        underline:gach chan
+        overline: gach tren dau
+        line-through: gach huy
+        none: bo cac gia tri css
+    */
+    text-decoration: none;
+    color: black;
+}
+
+/*
+2 cach de clear khi su dung thuoc tinh clear 
+*/
+/*cach 1*/
+nav{
+    /*clear 2 float left, right o tren di*/
+    clear: both;
+    /*Mau nen cua phan tu html*/
+    background-color: brown;
+}
+
+/*Cach 2*/
+/* header{
+    overflow: auto;
+} */
+
+.menu{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    /*Dung display flex dung de phan chia bo cuc trang giua cac thanh phan*/
+    display: flex;
+}
+
+/*Selector toi phan tu con cap 1*/
+.menu > li > a{
+    /*dac diem cua display inline
+        - width: bang dung noi dung no chua
+        - ko su dung duoc thuoc tinh css nhu width, height, margin, padding
+        
+    Dac diem cua display block:
+        - width = 100% cua phan tu cha chua no
+        - su dung duoc cac thuoc tinh css width, height, margin, padding
+    Dac diem cua display inline-block
+        - width, height = dung noi dung chua no
+        - su dung duoc cac thuoc tinh css: width, height, margin, padding
+        
+        */
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+
+    /*Padding la khoang cach tu border di vao content ben trong*/
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*Su kien khi con tro chuot nam tren phan tu html*/
+.menu > li > a:hover{
+    background-color: orange;
+}
+
+.sub-menu{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    /*
+    position: absolute: cung giong nhu position relative
+    - Toa do goc
+        +TH1: phan tu cha chua no co position relative -> toa do goc cua no la toa do cua phan tu cha
+        *Th2: Khong co phan tu cha nao co position relative -> toa do goc la toa do man hinh
+    */
+    position: absolute;
+    top: 42px;
+    left: 0;
+    min-width: 300px;
+    /*
+    box-shadow: apx bpx cpx color
+        - apx:  do bong sang ben phai
+        - bpx: do bong xuong duoi
+        - cpx: do mo` cua bong
+    */
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 5px;
+    background-color: white;
+
+    /*Lam xuyen thau phan tu
+        gia tri; tu 0->1
+    */
+    opacity: 0;
+
+    /*
+    ko bat su kien hover
+    */
+    visibility: hidden;
+    
+    /*thoi gian cua 1 chuyen dong*/
+    transition: 500ms;
+}
+
+.menu > li{
+    /*
+    position: ralative:
+        - Bien phan tu html thanh phan tu co toa do 2d (su dung thuoc tinh css: top, left, right, bottom de thay doi vi tri)
+        - Toa do goc ban dau: vi tri hien tai cua no
+    */
+    position: relative;
+}
+
+.sub-menu li a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+}
+
+.sub-menu li a:hover{
+    background-color: #ccc;
+}
+
+.menu > li:hover .sub-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+.content{
+    display: flex;
+    margin-top: 50px;
+}
+
+.content-left{
+    width: 350px;
+    /*
+        content-box: kich thuoc phan tu html tinh tu content
+        border-box: tinh tu border di vao
+    */
+    box-sizing: border-box;
+    padding:0 15px;
+    height: 600px;
+    background-color: gray;
+}
+
+.content-right{
+    width: calc(100% - 350px);
+    box-sizing: border-box;
+    padding:0 15px;
+    height: 600px;
+    background-color: bisque;
+}
