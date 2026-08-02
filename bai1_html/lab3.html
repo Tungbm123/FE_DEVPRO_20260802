@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dang ky tai khoan</title>
+    <style>
+        .dang-ky {
+            max-width: 600px;
+            padding: 50px;
+            box-shadow: 0 0 5px #ccc;
+            border-radius: 5px;
+            margin: 50px auto;
+        }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+            margin-bottom: 6px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .radio-label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+        .form-control {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            height: 35px;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dang-ky">
+        <!--method: 
+            1. GET dung trong form tim kiem
+            2. POST: tao moi
+            3. PUT: Update
+            4. DELETE: xoa
+            5. Action: Day data len server
+            enctype="multipart/form-data": dung de upload file trong form-->
+        <form action="/dang-ky.php" method="get" enctype="multipart/form-data">
+            <div class="row">
+                <label for="">Ho va Ten</label>
+                <input type="text" name="fullname" class="form-control">
+            </div>
+            <div class="row">
+                <label for="">Email</label>
+                <input type="email" name="email" class="form-control">
+            </div>
+            <div class="row">
+                <label for="">Passsword</label>
+                <input type="password" name="passsword" class="form-control">
+            </div>
+            <div class="row">
+                <label for="">Gioi tinh</label>
+                <div>
+                    <label for="">
+                        <input type="radio" name="gender" value="1" checked>Nam
+                    </label>
+                    <label for="">
+                        <input type="radio" name="gender" value="0">Nu
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <label for="">so thich</label>
+                <div>
+                    <label>
+                        <input type="checkbox" name="hobby[]" value="1" checked>Da bong
+                    </label>
+                     <label>
+                        <input type="checkbox" name="hobby[]" value="2">Doc sach
+                    </label>
+                     <label>
+                        <input type="checkbox" name="hobby[]" value="3">Choi game
+                    </label>
+                     <label">
+                        <input type="checkbox" name="hobby[]" value="4">Hat
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <label>Que quan</label>
+                <select name="country" class="form-control">
+                    <option value="" selected>vui long chon</option>
+                    <option value="1" >Ha Noi</option>
+                    <option value="2">Ho Chi Minh</option>
+                    <option value="3">Hai Duong</option>
+                </select>
+            </div>
+            
+            <div class="row">
+                <label for="">Anh dai dien</label>
+                <input type="file" name="avatar" accept="image/*">
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

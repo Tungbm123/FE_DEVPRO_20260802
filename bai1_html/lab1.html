@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--header chua cac the cau hinh hmtl
+    <meta charset dung de hien thu ki tu unicode
+    Chua cac the link hoac script -> nhung cac thu vien css, js
+    title: Ten page-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 1 - HTML5</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!---Body chua noi dung website-->
+    <h1>Xin chao cac ban</h1>
+
+    <!-- the hien thi data dang bang, thuong su dung trong phan quan tri-->
+    <!--Quy tac merge hang, cot trong table
+     1. Merge hang
+        - Su dung thuoc tinh rowspan = "n" -> so hang muon merge
+        -> merge tu tren xuong duoi -> bo di n-1 hang duoi
+
+    2. Merge cot
+        - Su dung thuoc tinh colspan = "n" -> n la so hang muon merge
+        -> bo di n-1 cot ben phai
+     -->
+        
+    <table border="1">
+        <thead>
+            <!--dong-->
+            <tr>
+                <th>STT</th>
+                <th>Anh</th>
+                <th>ten san pham</th>
+                <th>mo ta</th>
+                <th>Gia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img src="../media/23eb733e-77b0-401f-9210-a8d0c3153bfc.png" width="100px" alt=""></td>
+                <td>San pham 1</td>
+                <td>Description</td>
+                <td >1230</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="../media/23eb733e-77b0-401f-9210-a8d0c3153bfc.png" width="100px" alt=""></td>
+                <td>San pham 2</td>
+                <td>Description</td>
+                <td rowspan="2">1230</td>
+
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img src="../media/23eb733e-77b0-401f-9210-a8d0c3153bfc.png" width="100px" alt=""></td>
+                <td>San pham 3</td>
+                <td>Description</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Tong tien</td>
+                <td>15000</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .header {
+            height: 200px;
+            ;
+        }
+
+        .menu {
+            /* height: 700px; */
+            background-color: brown;
+        }
+
+        .main {
+            /* height: 600px; */
+            /* background-color: bisque; */
+            padding: 0 50px;
+        }
+
+        .footer {
+            height: 300px;
+            background-color: gray;
+        }
+
+        .menu ul{
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            display: flex;
+        }
+
+        .menu ul li{
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            padding: 13px 25px;
+            text-transform: uppercase;
+        }
+
+        /* Su kien khi con tro chuot nam tren vung html thi se lam thay doi thuoc tinh css */
+        .menu ul li:hover{
+            background-color: orange;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--the div: dung de phan chia bo cuc trang hoac bo cuc cac thanh phan
+    
+    the block; css display:block - wwidth =100% phan tu cha　(cac the div, h1->6..)
+    the inline: css display: inline - width - noi dung no chua (a,i,u, span, b)-->
+    <div class="header">
+    </div>
+    <div class="menu">
+        <!--The danh sach-->
+        <!--ul, li: su dung la menu hoac menu sidebar-->
+        <ul>
+            <li>
+                Trang chu
+            </li>
+            <li>
+                <!--target = "_blank" -> open new tab-->
+                <a href="https://www.google.com/?hl=vi" target="_blank">San pham</a>
+            </li>
+            <li>
+                tin tuc
+            </li>
+            <li>
+                Thong tin quang cao
+            </li>
+            <li>
+                Gioi thieu
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <!--h1>6
+        dung trong SEO, lam title bai viet-->
+        <h1>Tieu de bai viet tin tuc</h1>
+
+        <!--the p: su dung chua doan van ban-->
+        <!--The center: can giua text ra khung chua-->
+        <center>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti ducimus repellat quis inventore esse?
+            Facere, asperiores nesciunt optio sapiente hic dolorem saepe, natus nihil assumenda pariatur libero? Ullam,
+            illo voluptatibus?</center>
+        <p>
+            <b>Lorem ipsum dolor</b> sit amet <i>consectetur adipisicing elit</i>. Laborum non <span
+                style="color: red;">reiciendis officia voluptatum possimus,</span>
+            soluta ab <u>natus velit, aut accusamus, aliquam recusandae necessitatibus</u>. Quae ut quo nobis rem.
+            Laboriosam,
+            debitis?
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum non reiciendis officia voluptatum possimus,
+            soluta ab natus velit, aut accusamus, aliquam recusandae necessitatibus. Quae ut quo nobis rem. Laboriosam,
+            debitis?
+        </p>
+        <img src="../media/1785595055719_4605020022159344830_4605020022159344830_552eefc0d4a8326a0837e7baba1dfd50.jpg" width="200">
+
+         <h1>layout1</h1>
+    <video width="200" controls>
+        <source src="../media/ScreenRecording_07-13-2026 14-55-57_1.MP4" type="video/mp4">
+        
+    </video>
+    </div>
+    <div class="footer">
+        <!--The danh sach ol li, hay dung de lam dang muc luc-->
+        <ol type="A">
+            <li>Danh muc cha
+                <ol type="I">
+                    <li>Danh muc con 1.1</li>
+                    <li>Danh muc con 1.2</li>
+                    <li>Danh muc con 1.3</li>
+                </ol>
+            </li>
+            <li>Danh muc cha 2</li>
+            <li>Danh muc cha 3</li>
+        </ol>
+    </div>
+</body>
+
+</html>
