@@ -27,9 +27,9 @@
         }
 
         .radio-label {
-    display: inline-block;
-    margin-right: 15px;
-}
+            display: inline-block;
+            margin-right: 15px;
+        }
 
         .form-control {
             width: 100%;
@@ -37,6 +37,13 @@
             border: 1px solid #ccc;
             height: 35px;
             padding: 5px 15px;
+        }
+
+        .textarea-style {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            min-height: 300px;
         }
     </style>
 </head>
@@ -49,18 +56,22 @@
             3. PUT: Update
             4. DELETE: xoa
             5. Action: Day data len server
-            enctype="multipart/form-data": dung de upload file trong form-->
+            enctype="multipart/form-data": dung de upload file trong form
+            
+            Neu muon nhap so
+            1. input type la number
+            2. chon gio phuy giay: input type time-->
         <form action="/dang-ky.php" method="get" enctype="multipart/form-data">
             <div class="row">
-                <label for="">Ho va Ten</label>
+                <label>Ho va Ten</label>
                 <input type="text" name="fullname" class="form-control">
             </div>
             <div class="row">
-                <label for="">Email</label>
+                <label>Email</label>
                 <input type="email" name="email" class="form-control">
             </div>
             <div class="row">
-                <label for="">Passsword</label>
+                <label>Passsword</label>
                 <input type="password" name="passsword" class="form-control">
             </div>
             <div class="row">
@@ -80,13 +91,13 @@
                     <label>
                         <input type="checkbox" name="hobby[]" value="1" checked>Da bong
                     </label>
-                     <label>
+                    <label>
                         <input type="checkbox" name="hobby[]" value="2">Doc sach
                     </label>
-                     <label>
+                    <label>
                         <input type="checkbox" name="hobby[]" value="3">Choi game
                     </label>
-                     <label">
+                    <label>
                         <input type="checkbox" name="hobby[]" value="4">Hat
                     </label>
                 </div>
@@ -96,17 +107,30 @@
                 <label>Que quan</label>
                 <select name="country" class="form-control">
                     <option value="" selected>vui long chon</option>
-                    <option value="1" >Ha Noi</option>
+                    <option value="1">Ha Noi</option>
                     <option value="2">Ho Chi Minh</option>
                     <option value="3">Hai Duong</option>
                 </select>
             </div>
-            
+
             <div class="row">
-                <label for="">Anh dai dien</label>
+                <label>Anh dai dien</label>
                 <input type="file" name="avatar" accept="image/*">
             </div>
 
+            <div class="row">
+                <label>Ngay thang nam sinh</label>
+                <input type="date" name="birthday" class="form-control">
+            </div>
+
+            <div class="row">
+                <label>Mo ta</label>
+                <textarea name="description" class="textarea-style"></textarea>
+            </div>
+            <button type="submit">Dang ky</button>
+            <button type="button">Huy</button>
+            <input type="time">
+            <input type="number">
         </form>
     </div>
 
