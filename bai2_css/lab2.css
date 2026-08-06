@@ -199,14 +199,153 @@ nav{
     */
     box-sizing: border-box;
     padding:0 15px;
-    height: 600px;
-    background-color: gray;
+    /* height: 600px; */
+    /* background-color: gray; */
+}
+
+.sidebar{
+    /*
+        border: Apx type color
+        Apx: do day duong vien
+        type: loai duong vien solid, dashed, dotted
+        color: mau sac duong vien text, ma mau hex
+    */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.title-sidebar{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu-sidebar{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.menu-sidebar li a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+/*
+    Selector toi thang con cuoi cung de them thuoc tinh thi dung last-child
+*/
+.menu-sidebar li:last-child a{
+    border-bottom: 0;
+}
+
+/*
+    Selector toi phan tu con dau tien
+*/
+.menu-sidebar li:first-child a{
+    color: pink;
+}
+
+/*
+    selector toi 1 phan tu con bat ky
+*/
+.menu-sidebar li:nth-child() a{
+    color: green;
+}
+
+/*
+    selector theo con so chan 
+*/
+.menu-sidebar li:nth-child(2n) a{
+    color: orange;
+}
+
+
+/*
+    selector theo con so  le
+*/
+.menu-sidebar li:nth-child(2n+1) a{
+    color: purple;
 }
 
 .content-right{
     width: calc(100% - 350px);
     box-sizing: border-box;
     padding:0 15px;
-    height: 600px;
-    background-color: bisque;
+
+    /* background-color: bisque; */
+}
+
+.sidebar_filter{
+    margin-top: 40px;
+}
+
+.sidebar_filter .menu-sidebar li{
+    padding: 15px;
+
+}
+
+.sidebar_filter .menu-sidebar li label{
+    font-size: 18px;
+    display: block;
+    cursor: pointer;
+    padding-left: 50px;
+    position: relative;
+}
+
+.sidebar_filter .menu-sidebar li input[type="checkbox"]{
+    /*
+        An phan tu html di
+    */
+    display: none;
+}
+
+/*
+    Before va after cua html: content bo sung cho cach hien thi cua phan tu html
+*/
+.sidebar_filter .menu-sidebar li label::before{
+    content: "";
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/*
+    1/Su kien checked cua checkbox hoac radio
+    2/ Selector den phan tu html cung cap va dung ke sau
+*/
+.sidebar_filter .menu-sidebar li input[type="checkbox"]:checked + label::after{
+    content: "";
+    display: block;
+    width: 6px;
+    height: 13px;
+    border-bottom: 2px solid orangered;
+    border-right: 2px solid orangered;
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    /*
+        xoay phan tu html bao nhieu do
+    */
+    transform: rotate(45deg);
+}
+
+.sidebar_filter .menu-sidebar li input[type="checkbox"]:checked + label::before{
+    border-color: orangered;
+}
+
+.title{
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 28px;
 }
