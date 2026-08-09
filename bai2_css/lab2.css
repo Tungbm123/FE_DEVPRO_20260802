@@ -344,8 +344,174 @@ nav{
     border-color: orangered;
 }
 
-.title{
+.category-name{
     margin: 0;
     border-bottom: 1px solid #ccc;
     font-size: 28px;
+    padding: 11px;
+}
+
+.products{
+    display: flex;
+    /*
+        Dung de hien thi cac phan tu con theo dang hang, cot
+        row: hang
+        column:cot
+    */
+    flex-direction: row;
+    /*
+        Cho phep phan tu con xuong dong khong khi ma tong width cac phan tu con lon hon chieu dai cua phan tu cha
+            no-wrap: ko cho phep xuong dong
+            wrap: cho phep xuong dong
+    */
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.card{
+    width: calc(100%/4);
+    padding: 0 15px;
+    /*
+        box-sizing: content-box -> kich thuoc phan tu html la phan content
+    */
+    box-sizing: border-box; 
+    margin-bottom: 30px;
+}
+
+.img-card img{
+    width: 100%;
+}
+
+.card .card-content{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /*
+        An phan noi dung thua ben ngoai phan tu html
+    */
+    overflow: hidden;
+}
+
+.container{
+    margin-top: 50px;
+}
+
+.card-body{
+    padding: 0 15px 30px;
+}
+
+.img-card{
+    display: block;
+    overflow: hidden;
+}
+
+.img-card img:hover{
+    /*
+        Khi hover vao thi tang hoac giam kich thuoc cua phan tu html len bao nhieu lan
+    */
+    transform: scale(1.2);
+    /*
+        Thoi gian di chuyen zoom to len trong bao lau
+    */
+    transition: 1s;
+}
+
+.card-body h3 a{
+    display: block;
+    text-decoration: none;
+    color: #222;
+}
+
+
+/*
+    first-of-type: selector toi phan tu html p con dau tien
+*/
+.card-body p:first-of-type{
+    /*
+        Chieu cao cua dong text
+    */
+    line-height: 24px;
+    /*
+        Khoang cach giua cac tu ngu
+    */
+    word-spacing: 5px;
+    /*
+        Khoang cach giua cac chu cai
+    */
+    /* letter-spacing: 2px; */
+    /*
+        Doan van ban thut dau dong
+    */
+    /* text-indent: 15px; */
+
+    /*
+        Hien thi dau 3cham: white-space
+        wrap: cho phep xuong dong
+        nowrap: ko cho phep xuong dong
+
+    */
+    white-space: nowrap;
+    overflow: hidden;
+    /*hien thi dau 3 cham*/
+    text-overflow: ellipsis;
+}
+
+.price-product{
+    /*
+        text-align: can chinh text can trai, phai, giua (center)
+    
+    */
+    text-align: right;
+    font-size: 23px;
+    color: brown;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.card-body button{
+    border: 0;
+    font-size: 18px;
+    color: white;
+    background-color: orange;
+    padding: 10px 20px;
+}
+
+nav{
+    /*
+        Khi scroll xuong thi gan phan tu html tai vi tri mong muon
+        1. Tao phan tu html thanh 1 phan tu 2d (top, left, right, bottom)
+        2. Khi scroll den vi tri phan tu html thi gan o vi tri mong muon
+
+    */
+    position: sticky;
+    top: 0;
+    left: 0;
+    /*
+        uu tien phan tu nao noi len tren.
+        z-index cang lon thi cang noi len trn
+    */
+    z-index: 1;
+}
+
+#scroll-top{
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: #82828282;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    line-height: 80px;
+    border-radius: 50%;
+    /*
+        Position fixed: toa do 2d, dung top, left, right, bottom de thay doi toa do
+    */
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 2;
+}
+
+html{
+    scroll-behavior: smooth;
 }
