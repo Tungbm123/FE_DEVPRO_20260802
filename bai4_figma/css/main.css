@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+}
+
+/*
+    Khai bao font mac dinh
+*/
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/Poppins/Poppins-Regular.ttf");
+}
+
+/*Khai bao font co font-weight va font-style */
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/Poppins/Poppins-Light.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/Poppins/Poppins-LightItalic.ttf");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/Poppins/Poppins-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/Poppins/Poppins-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/Poppins/Poppins-MediumItalic.ttf");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/Poppins/Poppins-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "poppins";
+    src: url("../fonts/Poppins/Poppins-BoldItalic.ttf");
+    font-weight: 700;
+    font-style: italic;
+}
+
+* {
+    font-family: "poppins";
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.top {
+    background-color: #000;
+}
+
+.container-top {
+    display: flex;
+    /*
+        justify-content: can chinh cac phan tu con theo chieu ngang
+        center: can chinh tat ca cac thang con ra giua
+        flex-start: can sang trai
+        flex-end: can sang phai
+        space-between: cac phan tu con cach deu nhau (moi thang 1 ben trai, phai)
+        space-arround: ben trai va ben phai cua phan tu con cach deu nhau 1 khoang
+    */
+    justify-content: center;
+    height: 48px;
+    /*
+        Can chinh cac phan tu con theo chieu doc
+            flex-start: can phan tu con len top
+            flex-end: can phan tu con xuong bottom
+            center: can phan tu con ra giua khung chua
+    */
+    align-items: center;
+    position: relative;
+}
+
+.content-top {
+    color: #fafafa;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.content-top a {
+    font-weight: 600;
+    line-height: 24px;
+    display: inline-block;
+    margin-left: 8px;
+    color: #fafafa;
+}
+
+.language {
+    position: absolute;
+    right: 15px;
+}
+
+.slt-language {
+    background-color: #000;
+    color: #fafafa;
+    border: 0;
+}
+
+.slt-language:focus {
+    outline: unset;
+}
+
+.container-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+.shop-name {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    letter-spacing: 3%;
+    font-family: "Inter";
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu ul {
+    display: flex;
+}
+
+.menu ul li {
+    margin-right: 48px;
+}
+
+.menu ul li:last-child {
+    margin-right: 0;
+}
+
+.menu ul li a {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-decoration: none;
+    display: block;
+}
+
+/*Selector den the html co class active*/
+.menu ul li a.active {
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.content-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.form-search input {
+    width: 243px;
+    height: 38px;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding: 7px 12px 7px 20px;
+    border: 0;
+}
+
+.form-search {
+    position: relative;
+    margin-right: 24px;
+}
+
+.form-search button {
+    position: absolute;
+    border: 0;
+    height: 38px;
+    right: 0;
+    top: 0;
+    background-color: #f5f5f5;
+    /* padding: 7px; */
+    width: 38px;
+}
+
+.form-search input:focus {
+    outline: unset;
+}
+
+.content-header-right a {
+    display: inline-block;
+}
+
+.content-header-right a img {
+    vertical-align: middle;
+
+}
+
+.wish-list {
+    margin-right: 16px;
+}
