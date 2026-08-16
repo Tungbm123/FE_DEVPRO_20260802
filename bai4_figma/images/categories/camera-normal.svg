@@ -1,0 +1,7 @@
+<svg width="170" height="145" viewBox="0 0 170 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.5" y="0.5" width="169" height="144" rx="3.5" stroke="#B3B3B3"/>
+    <path d="M75 48L78 43H92L95 48H100C102.2 48 104 49.8 104 52V70C104 72.2 102.2 74 100 74H70C67.8 74 66 72.2 66 70V52C66 49.8 67.8 48 70 48H75Z" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="85" cy="61" r="7" stroke="black" stroke-width="2"/>
+    <circle cx="98" cy="53" r="1" fill="black"/>
+    <text x="85" y="105" fill="black" font-family="Poppins, Arial, sans-serif" font-size="16" text-anchor="middle">Camera</text>
+</svg>
