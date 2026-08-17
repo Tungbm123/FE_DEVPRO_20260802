@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khai bao js trong html</title>
+    <link rel="stylesheet" href="./css/main.css">
+
+    <style>
+        .form {
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #ccc;
+            margin: 50px auto;
+            padding: 50px;
+        }
+
+        #keyword {
+            box-sizing: border-box;
+            height: 35px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            padding: 5px 15px;
+            width: 100%;
+        }
+
+        #keyword:focus {
+            outline: unset;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        Co 3 cach khai bao js trong html
+        Cach 1: Su dung su kien cua html
+        Cach 2: Su dung cap the script va viet cac dong lenh js trong cap the
+        Cach 3: Tao 1 file co duoi file mo rong .js va su dung the script de khai bao
+
+        Cach 4: ham output
+            - alert(): hien thi thong bao toi nguoi dung
+            - document.write('<h1>Hien thi doan text su dung js</h1>'); Hien thi noi dung tai vi tri nhung js
+            - confirm() : hien thi hop thoai xac thuc hanh dong nguoi dung
+            - console.log() : dung de debug code loi 
+
+    -->
+    <!-- <button type="button" onclick="alert('xin chao cac ban')">Xin chao</button> -->
+
+    <script>
+        //in ra man hinh doan text
+        document.write('<h1>Hien thi doan text su dung js</h1>');
+    </script>
+
+    <!-- <button class="button" id="delete">Xoa nguoi dung</button> -->
+
+    <div class="form">
+        <input type="text" name="keyword" id="keyword">
+        <button type="button" id="submit">Submit</button>
+        <button type="button" id="submit2">Submit 2</button>
+
+
+    </div>
+    <script src="./js/lab1.js"></script>
+</body>
+
+</html>
