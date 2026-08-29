@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 9 -jquery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .form-register {
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0 0 5px #ccc;
+            border-radius: 5px;
+            padding: 50px;
+        }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        .row label {
+            display: flex;
+            margin-bottom: 5px;
+            font-size: 17px;
+        }
+
+        .form-control {
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            height: 36px;
+            padding: 5px 15px;
+            width: 100%;
+        }
+
+        .form-control:focus {
+            outline: unset;
+        }
+
+        .btn-register {
+            border: 0;
+            font-size: 20px;
+            padding: 15px 30px;
+            background-color: brown;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .row:last-child {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .fa-regular {
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-register">
+        <h1 id="title-form">dang ky tai khoan</h1>
+        <div class="row">
+            <label for="Username">User name</label>
+            <input type="email" name="email" class="form-control" field-name="email">
+            <span class="error"></span>
+        </div>
+        <div class="row">
+            <label for="">Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control" name="password" field-name="mat khau">
+                <i class="fa-regular fa-eye-slash"></i>
+            </div>
+            <span class="error"></span>
+
+        </div>
+
+        <div class="row">
+            <label for="">Gender</label>
+            <label for="">
+                <input type="radio" name="gender" id="" value="1">Nam
+            </label>
+            <label for="">
+                <input type="radio" name="gender" id="" value="0">Nu
+            </label>
+        </div>
+
+        <div class="row">
+            <button type="button" class="btn-register">Dang ky</button>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="./js/jquery.js"></script>
+    <script>
+        //selector css
+        // $('#title-form')
+        $('.form-control')
+        $('label')
+
+        //Lay noi dung the html va thay doi hoac them moi
+        //Lay noi dung dang text
+        let titleForm = $('#title-form').text();
+        let labelContent = $('label').text();
+
+        //Thay doi noi dung text: Truyen text vao text()
+        $('#title-form').text("Dang ky account");
+
+        //Lay noi dung bao gom the html con
+        let contentRow = $('.row:last-child').html();
+
+        //thay doi hoac them moi gom html
+        $('#title-form').html("<center>Dang ky tai khoan</center>");
+
+        //Thay doi thuoc tinh the html
+        $('.fa-regular').on('click', function () {
+            //cach lay gia tri cua thuoc tinh
+            let typeInput = $('input[name="password"]').attr('type');
+            if (typeInput == 'password') {
+                //Set attribute cho thuoc tinh
+                $('input[name="password"]').attr('type', 'text');
+                //Doi tuong html dang tac dong len
+                $(this).removeClass('fa-eye-slash').addClass('fa-eye');
+            } else {
+                $('input[name="password"]').attr('type', 'password');
+                $(this).removeClass('fa-eye').addClass('fa-eye-slash');
+            }
+        })
+
+        //thay doi hoac them moi hoac get gia tri thuoc tinh css
+        $('label').css("font-weight", 'bold');
+        $('#title-form').css('font-family', 'Arial')
+
+        //Get gia tri thuoc tinh css
+        let fontSize = $('#title-form').css('font-size');
+
+        //
+        $('.form-control').on('keyup', function () {
+            let fieldName = $(this).attr('field-name');
+            //lay gia tri input trong form
+            let valueInput = $(this).val();
+
+            if (valueInput == '') {
+                //dung parrents de di tim thang cha o tren
+                $(this).parents('.row').find('.error').text('Vui long nhap ' + fieldName);
+            } else {
+                $(this).parents('.row').find('.error').text('');
+            }
+        })
+
+        //lay value input radio hoac checkbox: duyet qua tung phan tu
+        var gender;
+        $('input[type="radio"]').each(function () {
+            if ($(this).is(':checked')) {
+                gender = $(this).val();
+            }
+        })
+        console.log(gender);
+
+
+
+    </script>
+
+</body>
+
+</html>

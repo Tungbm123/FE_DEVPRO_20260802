@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery- ajax</title>
+    <style>
+        .row {
+            display: flex;
+        }
+
+        .table {
+            width: 60%;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .form {
+            width: 40%;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+
+        }
+
+        .form-control {
+            width: 100%;
+            box-sizing: border-box;
+            height: 36px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 15px;
+
+        }
+
+        .btn-edit {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="table">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ten san pham</th>
+                        <th>Loai san pham</th>
+                        <th>Gia</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="form">
+            <div class="input-group">
+                <label for="">Ten san pham</label>
+                <input type="text" name="product-name" value="" class="form-control">
+            </div>
+            <div class="input-group">
+                <label for="">Loai san pham</label>
+                <input type="text" name="category" value="" class="form-control">
+            </div>
+            <div class="input-group">
+                <label for="">Gia</label>
+                <input type="text" name="price" value="" class="form-control">
+            </div>
+
+            <button type="button" class="btn-edit ">Edit san pham</button>
+            <button type="button" class="btn-add ">Them moi</button>
+
+        </div>
+
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script>
+        function getListProduct() {
+            //Ajax
+            $.ajax({
+                url: "https://reqres.in/api/collections/products/records?project_id=47972",
+                method: 'GET',
+                headers: {
+                    'x-api-key': 'pro_bf55d3f6e4e062f807a8c252cd9b526c559aa9681e6fb71f3fdb4ef30d9a1fb7',
+                    'X-Reqres-Env': 'prod'
+
+                },
+                success: function (response) {
+                    $('tbody').html('');
+                    console.log(response)
+                    var products = response.data;
+                    for (var i = 0; i < products.length; i++) {
+                        var str = `<tr>
+                                    <td> ${products[i].id}</td>
+                                    <td> ${products[i].data.name} </td>
+                                    <td> ${products[i].data.category} </td>
+                                    <td> ${products[i].data.price} </td>
+                                    <td><button type="button" class="btn-action-edit" onclick="dataProduct('${products[i].id}',
+                                                        '${products[i].data.name}',
+                                                        '${products[i].data.category}',
+                                                        ${products[i].data.price})">Edit</button>
+                                                        <button type="button" class="btn-action-delete" onclick="deleteProduct('${products[i].id}', this)">Delete</button></td>
+                                    </tr>`;
+                        $('tbody').append(str);
+
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            })
+        }
+
+        getListProduct();
+        var productId;
+
+        function dataProduct(id, name, category, price) {
+            productId = id;
+            $('input[name="product-name"]').val(name);
+            $('input[name="category"]').val(category);
+            $('input[name="price"]').val(price);
+
+        }
+
+        $('.btn-edit').on('click', function () {
+            let productName = $('input[name="product-name"]').val();
+            let category = $('input[name="category"]').val();
+            let price = $('input[name="price"]').val();
+
+            $.ajax({
+                url: `https://reqres.in/api/collections/products/records/${productId}?project_id=47972`,
+                method: 'PUT',
+                headers: {
+                    'x-api-key': 'pro_bf55d3f6e4e062f807a8c252cd9b526c559aa9681e6fb71f3fdb4ef30d9a1fb7',
+                    'X-Reqres-Env': 'prod',
+                    'Content-Type': 'application/json'
+                },
+                data: JSON.stringify({
+                    "data": {
+                        "name": productName,
+                        "price": price,
+                        "category": category,
+                        "in_stock": true
+                    }
+
+
+                }),
+                success: function (response) {
+                    console.log(response);
+                    console.log("da edit san pham thanh cong")
+                    getListProduct();
+
+                },
+                error: function (error) { }
+            });
+        })
+
+        function deleteProduct(productId, button) {
+            $.ajax({
+                url: `https://reqres.in/api/collections/products/records/${productId}?project_id=47972`,
+                method: 'DELETE',
+
+                headers: {
+                    'x-api-key': 'pro_bf55d3f6e4e062f807a8c252cd9b526c559aa9681e6fb71f3fdb4ef30d9a1fb7',
+                    'X-Reqres-Env': 'prod'
+                },
+
+                success: function (response) {
+                    console.log('Xóa thành công');
+                    $(button).closest('tr').remove();
+
+                },
+
+                error: function (error) {
+                    console.log(error);
+                }
+
+            })
+        }
+        
+         $('.btn-add').on('click', function () {
+            let productName = $('input[name="product-name"]').val();
+            let category = $('input[name="category"]').val();
+            let price = $('input[name="price"]').val();
+
+            $.ajax({
+                url: `https://reqres.in/api/collections/products/records?project_id=47972`,
+                method: 'POST',
+                headers: {
+                    'x-api-key': 'pro_bf55d3f6e4e062f807a8c252cd9b526c559aa9681e6fb71f3fdb4ef30d9a1fb7',
+                    'X-Reqres-Env': 'prod',
+                    'Content-Type': 'application/json'
+                },
+                data: JSON.stringify({
+                    "data": {
+                        "name": productName,
+                        "price": price,
+                        "category": category,
+                        "in_stock": true
+                    }
+
+
+                }),
+                success: function (response) {
+                    console.log(response);
+                    console.log("da edit san pham thanh cong")
+                    getListProduct();
+
+                },
+                error: function (error) { }
+            });
+        })
+    </script>
+</body>
+
+</html>
